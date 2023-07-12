@@ -10,10 +10,6 @@
  * SYSC2004 Summer 2023 Assignment 1
  */
 
-
-
-import java.util.*;
-import java.io.*;
 import java.lang.Math;
 
 
@@ -63,13 +59,14 @@ public class PaintJob{
         
         for (int i = 1; i<=3; i++){
             System.out.println("***********************\n");
+            System.out.println("Project: " + projectName);
             // a Liter of paint covers 100 square feet
 	        paintNeeded = (area * i) / LITER_COVERS_SQUARE_FEET;
             System.out.println("Amount of paint needed for " + i +" coats: " + paintNeeded + "L");
 	        
             //number of 3.7 Liter cans needed to paint the wall
 	        numCans =(int) Math.ceil(paintNeeded / 3.7);
-	        System.out.println("Number of paint cans needed for " + i + " coats"  + numCans +  "cans");
+	        System.out.println("Number of paint cans needed for " + i + " coats: "  + numCans +  " cans");
             
             //Cost of paint for the number of cans needed and the price per can.
             coatCost = numCans * iCanPrice;
@@ -77,6 +74,8 @@ public class PaintJob{
 
             System.out.println("Remaining Budget after " + i + " coat(s) of paint: $" + (budget -  coatCost));
         }
+
+
 
     }
 
