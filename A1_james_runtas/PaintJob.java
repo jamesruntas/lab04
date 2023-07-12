@@ -61,24 +61,21 @@ public class PaintJob{
 
     public void calculateCoatCoast(float iCanPrice, float iBudget){
         
-        // a Liter of paint covers 100 square feet
-        paintNeeded = area / LITER_COVERS_SQUARE_FEET;
-        System.out.println("Paint Needed: " + paintNeeded + "L\n");
-
-        //number of 3.7 Liter cans needed to paint the wall
-        numCans = (int) Math.ceil(paintNeeded / 3.7);
-        System.out.println("Number of paint cans needed: " + numCans + " cans\n");
-
-        //Cost of paint for the number of cans needed and the price per can.
-        coatCost = numCans * iCanPrice;
-        System.out.println("Paint Cost per coat: $" + coatCost + "\n");
-
         for (int i = 1; i<=3; i++){
+            System.out.println("***********************\n");
             // a Liter of paint covers 100 square feet
-	        paintNeeded = (area * 2) / LITER_COVERS_SQUARE_FEET;
-	        //number of 3.7 Liter cans needed to paint the wall
+	        paintNeeded = (area * i) / LITER_COVERS_SQUARE_FEET;
+            System.out.println("Amount of paint needed for " + i +" coats: " + paintNeeded + "L");
+	        
+            //number of 3.7 Liter cans needed to paint the wall
 	        numCans =(int) Math.ceil(paintNeeded / 3.7);
-	        System.out.println("Remaining Budget after " + i + " coat(s) of paint: $" + (budget - (i * coatCost)));
+	        System.out.println("Number of paint cans needed for " + i + " coats"  + numCans +  "cans");
+            
+            //Cost of paint for the number of cans needed and the price per can.
+            coatCost = numCans * iCanPrice;
+            System.out.println("Paint Cost of " + i + " coats: $" + coatCost + "");
+
+            System.out.println("Remaining Budget after " + i + " coat(s) of paint: $" + (budget -  coatCost));
         }
 
     }

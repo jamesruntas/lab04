@@ -17,15 +17,15 @@ public class Main {
         try (Scanner userInput = new Scanner(System.in)) {
             System.out.println("Enter Project Name: ");
             String iName = userInput.nextLine();  // Read user input
-            System.out.println("Enter Height (feet): ");
+            System.out.println("Enter Height: (feet) ");
             float iHeight = userInput.nextFloat();  // Read user input
-            System.out.println("Enter Width(feet):");
+            System.out.println("Enter Width: (feet)");
             float iWidth = userInput.nextFloat();  // Read user input
-            System.out.println("Enter Length(feet):");
+            System.out.println("Enter Length: (feet)");
             float iLength = userInput.nextFloat();  // Read user input
-            System.out.println("Enter Price per can: $");
+            System.out.println("Enter Price per can: ($)");
             float iCanPrice = userInput.nextFloat();  // Read user input
-            System.out.println("Enter Project Budget: $");
+            System.out.println("Enter Project Budget: ($)");
             float iBudget = userInput.nextFloat();  // Read user input
 
 
