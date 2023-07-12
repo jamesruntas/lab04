@@ -11,14 +11,20 @@
 
 
 public class Main {
-
-
     public static void main(String[] args) {
+
+        System.out.println("Starting Main, Heater being created\n");
+        
         Heater heater1 = new Heater();   //Create default heater object
+
         System.out.println(heater1.temperature());   //display initital temp
+
         heater1.warmer();   // call warm method to increment heater temp
+
         System.out.println(heater1.temperature()); //dispay warmer temp
+        
         heater1.cooler();   //call cooler method to decrement heater temp
+        
         System.out.println(heater1.temperature());  // display cooler temp
     }
 }
