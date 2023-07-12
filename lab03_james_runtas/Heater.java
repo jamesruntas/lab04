@@ -48,19 +48,21 @@ public class Heater{
      * @param minTemp
      * @param maxTemp
      * 
+     * Constructs a new heater with a minimum temperature and maximum temperature.
+     * 
      */    
     public Heater(int minTemp, int maxTemp) {
     }
 
     /**
-     * Write an appropriate comment here.
+     * Returns heater objects current temperature (int)
      */    
     public int temperature(){
         return temperature;
     }
     
     /**
-     * Write an appropriate comment here.
+     * Increment the heaters temperature by the increment value (warm up)
      */
     public void warmer(){
         temperature+=increment;
@@ -68,16 +70,16 @@ public class Heater{
     }
 
     /**
-     * Write an appropriate comment here.
+     * Decrement the heaters temperature by the increment value (cool down)
      */    
     public void cooler(){ 
         temperature-=increment;
 
     }
     
-    
     /**
-     * Write an appropriate comment here.
+     * Sets the increment value for the heater object if larger than zero.
+     * @param newIncrement, new value for the heater to increment for warmer and cooler methods
      */    
     public void setIncrement(int newIncrement){ 
         if (newIncrement>= 0){
