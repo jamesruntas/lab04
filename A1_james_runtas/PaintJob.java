@@ -1,3 +1,6 @@
+import java.util.*;
+import java.io.*;
+import java.lang.Math;
 /**
  * 
  * 
@@ -9,17 +12,8 @@
  * 
  * SYSC2004 Summer 2023 Assignment 1
  */
-
-
-
-import java.util.*;
-import java.io.*;
-import java.lang.Math;
-
-
 public class PaintJob{
-
-
+    
     private static final float LITER_COVERS_SQUARE_FEET = 100;
     public int numCans;
     public float coatCost, paintNeeded;
@@ -28,8 +22,6 @@ public class PaintJob{
     private float budget;
     private float canPrice;
     
-
-
     public PaintJob(){
         numCans = 0;
         coatCost = 0;
@@ -56,7 +48,6 @@ public class PaintJob{
 
         // Wall area = 2*((HxW)+(HxL))
         area = (float)2*((iHeight * iWidth) + (iHeight * iLength));
-
     }
 
     public void calculateCoatCoast(float iCanPrice, float iBudget){
