@@ -75,7 +75,7 @@ public class PaintJob{
         
         //Loop 3 times, once per coat
         for (int i = 1; i<=3; i++){
-            System.out.println("***********************\n");
+            System.out.println("***********************");
             System.out.println("Project: " + projectName);
             // a Liter of paint covers 100 square feet
 	        paintNeeded = (area * i) / LITER_COVERS_SQUARE_FEET; // Paint needed for current coat number, including paint needed for previous coats
