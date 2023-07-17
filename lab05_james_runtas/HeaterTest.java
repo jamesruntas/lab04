@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.apiguardian.api.API;
 
 /**
  * The test class HeaterTest.
