@@ -91,10 +91,6 @@ public class ToDo{
         
     }
 
-    public Boolean isCompleted(){
-        return false;
-    }
-
     public void setTitle(String title){
 
     }
