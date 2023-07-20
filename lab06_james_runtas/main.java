@@ -21,6 +21,11 @@ public class main {
         ToDo toDo3 = new ToDo("Walk Hamster", false);
         ToDo toDo4 = new ToDo("Walk Kids", false);
 
+        toDo1.convertTime("00:00");
+        toDo2.convertTime("22:21");
+        toDo3.convertTime("23:59");
+        toDo4.convertTime("99:99");
+
         toDoList.add(toDo1);
         toDoList.add(toDo2);
         toDoList.add(toDo3);
