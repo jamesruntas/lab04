@@ -49,8 +49,8 @@ public class ToDo{
             hours = -1;
             minutes = -1;
         }
-        int iHours = Integer.parseInt(timeEnded.substring(0,1));
-        int iMinutes = Integer.parseInt(timeEnded.substring(3, 4));
+        int iHours = Integer.parseInt(timeEnded.substring(0,2));
+        int iMinutes = Integer.parseInt(timeEnded.substring(3, 5));
         
         if (iHours > 23){
             hours = -1;
