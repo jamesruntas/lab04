@@ -24,18 +24,17 @@ public class CarEngine {
     }
 
     private float calculateHorsePowerFromTorque(){
-        
-        return 0.0;
+        //𝐻𝑜𝑟𝑠𝑒𝑝𝑜𝑤𝑒𝑟 = 𝑇𝑜𝑟𝑞𝑢𝑒 × 𝑅𝑃𝑀/5252 
+        return torque*(speed/RADIANS_PER_SECOND);
     }
 
     private float calculateEngineDisplacement(){
-        
-        return 0.0;
+        //𝐸𝑛𝑔𝑖𝑛𝑒 𝑑𝑖𝑠𝑝𝑙𝑎𝑐𝑒𝑚𝑒𝑛𝑡 = 𝜋𝑟2 × 𝑆𝑡𝑟𝑜𝑘𝑒 × 𝑁𝑢𝑚𝑏𝑒𝑟 𝑜𝑓 𝑐𝑦𝑙𝑖𝑛𝑑𝑒𝑟𝑠
+        return Math.PI*(Math.pow(boreSize/2, boreSize/2))*stroke*numCylinders;
     }
 
     private float calculateHorsePowerFromDisplacement(){
-
-        return 0.0;
+        return engineDisplacement/CC_FROM_HP;
     }
 
     public void setCompanyName(String companyName){
