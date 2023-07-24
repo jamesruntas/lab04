@@ -36,6 +36,9 @@ public class main {
             
             toDo.printItem();
         }
+
+        int a1=5;
+        double a2 = (float)a1;
     }
     
 }
