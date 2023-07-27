@@ -1,15 +1,18 @@
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
- * SYSC2004 Summer 2023 Lab 7
+ * SYSC2004 Summer 2023 Lab 8
  * Main class responsible for user interaction and data management of user profiles.
  * 
  * 
  * @author James Runtas 
  * Student Number 101109175
- * @version Version 1.00 July 25th 2023
+ * @version Version 1.00 July 27th 2023
  */
 public class Main {
     /** A map to store user profiles, keyed by username. */
@@ -20,6 +23,7 @@ public class Main {
      * @param userInput The Scanner object used for user input.
      */
     public static void userInputProfile(Scanner userInput) {
+    
         System.out.println("Enter first name: ");
         String iFirstName = userInput.nextLine();
         System.out.println("Enter last name: ");
@@ -34,7 +38,8 @@ public class Main {
         profile.setFirstName(iFirstName);
         profile.setLastName(iLastName);
         profile.setDateOfBirth(iDateOfBirth);
-        profile.setProfilePassword(iPassword);
+        profile.setProfilePassword(iPassword); //Will hash it 
+
 
         // Check if date of birth was correctly set
         if (profile.getDateOfBirth() != null) {
@@ -51,12 +56,14 @@ public class Main {
      */
     public static void main(String[] args){
         Boolean quit = false;
-        try (Scanner userInput = new Scanner(System.in)) {
+        Scanner userInput = new Scanner(System.in); 
+        try {
             while(!quit){
                 userInputProfile(userInput);
-                System.out.println("Enter Q to quit the app or any key to add another user");
+                System.out.println("Enter Q to quit, L to login or any key to add another user");
                 String iUserQuitOrAddMore = userInput.nextLine();
 
+                //Entered Q?
                 if (iUserQuitOrAddMore.equalsIgnoreCase("Q")){
                     // Print all user profiles
                     for (HashMap.Entry<String, Profile> user: users.entrySet()){
@@ -64,9 +71,53 @@ public class Main {
                     }
                     quit = true;
                 }
+                //Entered L?
+                else if (iUserQuitOrAddMore.equalsIgnoreCase("L")) {
+                    login(userInput);
+                }
             }
+
         }catch (Exception e) {
             System.out.println("IO error");
         }
+        finally {
+            // Make sure to close the Scanner when done
+            userInput.close();
+        }
+    }
+
+    /**
+     * Prompts user username and login. will check if correct inputs, either refusing login or logging in successfully.
+     * @param userInputLogin The Scanner object used for user input.
+     */
+    private static void login(Scanner userInputLogin) {
+
+        //Get Username from user
+        System.out.println("Enter username: ");
+        String iUserName = userInputLogin.nextLine();
+
+        //Look for if username exists in our DB.
+        Profile profile = users.get(iUserName);
+        
+        //If no username, print out and return to main
+        if (profile == null) {
+            System.out.println("No user found with that username.");
+        } else {
+            for (int i = 0; i < 3; i++) { //If username does exist, we set 3 password attempts
+                System.out.println("Enter password: ");
+                String iPassword = userInputLogin.nextLine(); //Poll user for password
+
+                if (profile.checkPassword(iPassword)) { //if the usernames password (hashed) matches entered password(hashed), see checkPassword()
+                    System.out.println("Login successful.");
+                    profile.printProfile();
+                    return;
+                } else {
+                    System.out.println("Invalid password. Try again.");
+                }
+            }
+
+            System.out.println("Max number of wrong attempts reached!");
+        }
+
     }
 }

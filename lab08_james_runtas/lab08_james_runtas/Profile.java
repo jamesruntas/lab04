@@ -1,13 +1,19 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
+
+import javax.management.RuntimeErrorException;
+
 import java.time.LocalDate;
+import java.math.BigInteger;
+import java.security.*;
+
 /**
- * SYSC2004 Summer 2023 Lab 7
+ * SYSC2004 Summer 2023 Lab 8
  * Profile class creates user profiles
  * 
  * @author James Runtas 
  * Student Number 101109175
- * @version Version 1.00 July 25th 2023
+ * @version Version 1.00 July 27th 2023
  */
 public class Profile {
 
@@ -18,6 +24,7 @@ public class Profile {
     private LocalDate dateOfBirth;
     private String lastName;
     private String firstName;
+    private MessageDigest md;
     
     /**
      * Constructor for Profile. Initializes the profile with default values.
@@ -26,12 +33,43 @@ public class Profile {
         firstName = "Default First";
         lastName = "Default Last";
         dateOfBirth = LocalDate.of(2023,01,01);
-        profilePassword = "Default Password";
+        setProfilePassword("Default Password"); //Hashing default password. cant store unencrypted passwords
         setUserName(firstName+lastName);
         loggedIn = false; 
         lastLogged = LocalDateTime.now();
+        
+        
+        
 
     }
+
+    /**
+     * Takes a password and creates its SHA256 Hash
+     * @param profilePassword The entered password.
+     * @return Hashed Password, or throws an error. 
+     */
+    private String hashText(String profilePassword){
+        //Create instance of MessageDigest SHA256
+        //Must be surrounded by try catch to compile.
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+            byte[] messageDigest = md.digest(profilePassword.getBytes()); //use input parameter
+            BigInteger messageNumber = new BigInteger(1, messageDigest);
+            String hashText = messageNumber.toString(16);
+    
+            while(hashText.length() < 64){
+                hashText = "0" + hashText;
+            }
+            return hashText;
+    
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
 
     /*
      * Prints user profile information to console
@@ -52,7 +90,7 @@ public class Profile {
      * @return True if the password matches, otherwise false.
      */
     public boolean checkPassword(String enteredPassword) {
-        if (enteredPassword.equals(profilePassword)){
+        if (hashText(enteredPassword).equals(profilePassword)){ //compare hashes
             setLoggedIn(true);
             return true;
         }
@@ -140,7 +178,7 @@ public class Profile {
      * @param profilePassword
      */
     public void setProfilePassword(String profilePassword) {
-        this.profilePassword = profilePassword;
+        this.profilePassword = hashText(profilePassword);
     }
 
     /*
