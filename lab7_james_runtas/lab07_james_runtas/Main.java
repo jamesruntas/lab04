@@ -1,15 +1,11 @@
+package lab07_james_runtas;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 /**
- * SYSC2004 Summer 2023 Lab 7
- * Main class responsible for user interaction and data management of user profiles.
- * 
- * 
- * @author James Runtas 
- * Student Number 101109175
- * @version Version 1.00 July 24th 2023
+ * Main class responsible for user interaction and data management.
  */
 public class Main {
     /** A map to store user profiles, keyed by username. */

@@ -9,7 +9,7 @@ import java.util.Scanner;
  * 
  * @author James Runtas 
  * Student Number 101109175
- * @version Version 1.00 July 24th 2023
+ * @version Version 1.00 July 25th 2023
  */
 public class Main {
     /** A map to store user profiles, keyed by username. */
@@ -36,8 +36,13 @@ public class Main {
         profile.setDateOfBirth(iDateOfBirth);
         profile.setProfilePassword(iPassword);
 
-        // Add to the users HashMap
-        users.put(iFirstName + iLastName, profile);
+        // Check if date of birth was correctly set
+        if (profile.getDateOfBirth() != null) {
+            // Add to the users HashMap
+            users.put(iFirstName + iLastName, profile);
+        } else {
+            System.out.println("User was not added due to invalid date of birth.");
+        }
     }
 
     /**
