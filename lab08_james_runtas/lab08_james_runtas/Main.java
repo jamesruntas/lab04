@@ -73,7 +73,7 @@ public class Main {
                 }
                 //Entered L?
                 else if (iUserQuitOrAddMore.equalsIgnoreCase("L")) {
-                    login(userInput);
+                    login(userInput); //Use the login functionality
                 }
             }
 

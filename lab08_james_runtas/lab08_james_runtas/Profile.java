@@ -1,8 +1,6 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 
-import javax.management.RuntimeErrorException;
-
 import java.time.LocalDate;
 import java.math.BigInteger;
 import java.security.*;
@@ -37,10 +35,6 @@ public class Profile {
         setUserName(firstName+lastName);
         loggedIn = false; 
         lastLogged = LocalDateTime.now();
-        
-        
-        
-
     }
 
     /**
@@ -67,10 +61,6 @@ public class Profile {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
     /*
      * Prints user profile information to console
      */
@@ -80,8 +70,6 @@ public class Profile {
         System.out.println("D.O.B: " + dateOfBirth);
         System.out.println("Last Logged in: " + lastLogged);
         System.out.println("-----------------");
-
-
     }
 
     /**
