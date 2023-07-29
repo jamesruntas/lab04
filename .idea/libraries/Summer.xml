@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Summer">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lab05_james_runtas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lab07_james_runtas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lab03_james_runtas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lab04_james_runtas.zip!/" />
+      <root url="jar://$PROJECT_DIR$/james_runtas_A01.zip!/" />
+      <root url="jar://$PROJECT_DIR$/lab06_james_runtas.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
