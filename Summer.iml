@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/A1_james_runtas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/james_runtas_A2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lab03_james_runtas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lab04_james_runtas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lab05_james_runtas" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lab06_james_runtas" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="junit-platform-console-standalone-1.10.0-RC2" level="project" />
+    <orderEntry type="library" name="junit-platform-console-standalone-1.10.0-RC1" level="project" />
+    <orderEntry type="library" name="junit-platform-console-standalone-1.10.0-RC21" level="project" />
+  </component>
+</module>
