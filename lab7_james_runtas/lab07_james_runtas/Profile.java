@@ -1,15 +1,11 @@
+package lab07_james_runtas;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeParseException;
 import java.time.LocalDate;
 
 /**
- * SYSC2004 Summer 2023 Lab 7
- * Profile class representing a users profile. 
- * 
- * 
- * @author James Runtas 
- * Student Number 101109175
- * @version Version 1.00 July 24th 2023
+ * Profile class representing a user's profile.
  */
 public class Profile {
 
@@ -29,7 +25,7 @@ public class Profile {
         lastName = "Default Last";
         dateOfBirth = LocalDate.of(2023,01,01);
         profilePassword = "Default Password";
-        setUserName(firstName , lastName);
+        setUserName(firstName + lastName);
         loggedIn = false; 
         lastLogged = LocalDateTime.now();
     }
@@ -89,15 +85,7 @@ public class Profile {
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
-        setUserName(firstName , lastName);
-    }
-
-        /**
-     * Sets the last name of the profile and updates the username.
-     * @param lastName The new last name.
-     */
-    public void setUserName(String firstName, String lastName) {
-        this.userName = firstName+lastName;
+        setUserName(firstName + lastName);
     }
 
     /**
@@ -106,6 +94,6 @@ public class Profile {
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
-        setUserName(firstName , lastName);
+        setUserName(firstName + lastName);
     }
 }
