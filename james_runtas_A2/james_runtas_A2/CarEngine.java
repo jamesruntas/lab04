@@ -47,7 +47,7 @@ public class CarEngine {
         this.setStroke(stroke);
         this.setNumCylinders(numCylinders);
         this.setEngineDisplacement();
-        setHorsePower(true);
+        setHorsePower(false);
 
     }
 
