@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SeigeGame/SeigeGame.iml" filepath="$PROJECT_DIR$/SeigeGame/SeigeGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Summer.iml" filepath="$PROJECT_DIR$/Summer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab08_james_runtas/lab08_james_runtas.iml" filepath="$PROJECT_DIR$/lab08_james_runtas/lab08_james_runtas.iml" />
+    </modules>
+  </component>
+</project>
