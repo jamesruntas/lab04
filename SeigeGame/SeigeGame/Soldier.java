@@ -25,20 +25,6 @@ public class Soldier {
         this.secondaryGun = secondaryGun;
     }
 
-    /**
-    Display the soldier's details at a certain
-    point of the game
-    */
-    public void printDescription(){
-        if (armor < 0){
-            armor = 0;
-        }
-        if (health < 0){
-            health = 0;
-        }
-        System.out.println("\n{name: " + name + "\narmor: " + armor + "\nhealth(HP): " + health +"}");
-    }
-
         // Getters
         public String getName() {
             return name;
@@ -97,7 +83,63 @@ public class Soldier {
             this.secondaryGun = secondaryGun;
         }
 
-
+        protected void attackedOnArmor(int damageReceived){
+            System.out.println("Soldier " + name + " receives " + damageReceived + " of damage and tries to block with armor.");
+            if (armor > 0){
+                if (armor < damageReceived){
+                    armor = armor - damageReceived;
+                    System.out.println("Soldier " + name + " has their armor depleted completely.");
+                    health = health - (armor * -1);
+                    if (health > 0){
+                        System.out.println("Soldier " + name + " has their health points depleted to " + health);
+                    } else {
+                        System.out.println("Soldier " + name + " has their health points depleted COMPLETELY.");
+                    }
+                } else{
+                    armor = armor - damageReceived;
+                    System.out.println("Soldier " + name + " has their armor depleted to " + armor);
+                }
+            } else{
+                System.out.println("Soldier " + name + " has no armor left; hit points going to HP");
+                health = health - damageReceived;
+                if (health > 0){
+                    System.out.println("Soldier " + name + " SURVIVES the attack with " + health + " health remaining!");
+                }else{
+                    System.out.println("Soldier " + name + " DOES NOT survive the attack. All health points depleted");
+                }
+            }
+        }
+    
+        protected void attackedOnHP(int damageReceived){
+            health = health - damageReceived;
+            if (health > 0){
+                System.out.println("Soldier " + name + " SURVIVES the attack with " + health + " health remaining!");
+            }else{
+                System.out.println("Soldier " + name + " DOES NOT survive the attack. All health points depleted");
+            }
+        }
+    
+    public void attacked(int damagedReceived){}
+    public int attack(){return 0;}
+    public double takeCover(){return 0;}
+    
+    public void printDescription(){
+        if (armor < 0){
+            armor = 0;
+        }
+        if (health < 0){
+            health = 0;
+        }
+        System.out.println("\n{name: " + name + "\narmor: " + armor + "\nhealth(HP): " + health +"}");
+    }
+    
+        @Override
+        public String toString(){
+            return "\n{name: " + name +
+                    "\narmor: " + armor +
+                    "\nhealth(HP): " + health +
+                    "}";
+        }
 
 
 }

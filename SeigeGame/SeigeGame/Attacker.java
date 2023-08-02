@@ -18,5 +18,17 @@ public class Attacker extends Soldier {
         this.specialAttackName = specialAttackName;
         this.specialCount = specialCount;
     }
+
+    public int attack(){
+        return 0;
+    }
+
+    public double takeCover(){
+        return 0;
+    }
+
+    public void attacked(int damagedReceived){
+
+    }
     
 }

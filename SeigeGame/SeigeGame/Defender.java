@@ -9,6 +9,7 @@ public class Defender extends Soldier {
         DefenderSpecial = 0;
         specialDefendName = "";
         specialCount = 0;
+        armor2 = 15;
     }
 
     public Defender(int DefenderSpecial, String specialDefendName, int specialCount){
@@ -16,6 +17,25 @@ public class Defender extends Soldier {
         this.DefenderSpecial = DefenderSpecial;
         this.specialDefendName = specialDefendName;
         this.specialCount = specialCount;
+        this.armor2 = 15;
     }
+
+    public int attack(){
+        return 0;
+    }
+
+    public double takeCover(){
+        return 0;
+    }
+
+    protected void attackedOnArmor(int damagedReceived){
+
+    }
+
+    public void attacked(int damagedReceived){
+
+    }
+
+
     
 }
