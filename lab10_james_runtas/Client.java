@@ -1,6 +1,6 @@
 /**
  * 
- * SYSC2004 Lab 9
+ * SYSC2004 Lab 10
  * Client (main) implementation
  * 
  * @author James Runtas

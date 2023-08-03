@@ -1,8 +1,8 @@
 /**
  * The test class CounterTest.
  *
- * @author  (your name)
- * @version (a version number or a date)
+ * @author  James Runtas 101109175
+ * @version August 3rd 2023
  */
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,10 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-
-public class CounterTest {
-    private RollOverCounter c1;
-	
+public class CounterTest extends junit.framework.TestCase
+{
+    private Counter c1;
+    private Counter c2;
+    
     /**
      * Default constructor for test class CounterTest
      */
@@ -28,10 +29,10 @@ public class CounterTest {
      *
      * Called before every test case method.
      */
-    @BeforeEach
     protected void setUp()
     {
-        c1 = new RollOverCounter(1, 10);
+        c1 = new RollOverCounter(1, 10);    
+        c2 = new LimitedCounter(1, 10);    
     }
 
     /**
@@ -39,15 +40,13 @@ public class CounterTest {
      *
      * Called after every test case method.
      */
-    @AfterEach
     protected void tearDown()
     {
     }
     
     /**
-     * Tests the original (lab 9) RollOverCounter methods.
+     * Tests the original (lab 8) RollOverCounter methods.
      */
-    @Test
     public void testAllRollOverCounterMethods()
     {    
         /* Verify that the counter is in the correct initial state. */
@@ -80,4 +79,69 @@ public class CounterTest {
         c1.reset();
         assertEquals(1, c1.count());
     }    
+    
+    
+    
+    
+        /**
+     * Tests the original (lab 8) LimitedCounter methods.
+     */
+    public void testAllLimitedCounterMethods()
+    {    
+        /* Verify that the counter is in the correct initial state. */
+        assertEquals(1, c2.minimumCount());
+        assertEquals(10, c2.maximumCount());
+        assertEquals(1, c2.count());        
+        
+        assertTrue(c2.isAtMinimum());
+        assertFalse(c2.isAtMaximum());
+  
+        /* Count 1 -> 2 */
+        
+        c2.countUp();
+        assertEquals(2, c2.count());
+        assertFalse(c2.isAtMinimum());
+        
+        /* Count 3, 4, ...9, 10 */
+        for (int i = 1; i < 9; i++) {
+            c2.countUp();
+        }
+        assertTrue(c2.isAtMaximum());
+        
+        /* Count 10 -> 10 */
+        c2.countUp();
+        assertEquals(10, c2.count());
+        
+        /* Verify that reset works. */
+        c2.countUp();
+        c2.countUp();
+        c2.reset();
+        assertEquals(1, c2.count());
+    }  
+    
+    
+    
+    public void testNewRollOverCounterMethods() {
+        assertEquals(1, c1.count());
+        c1.setToMaximum();
+        
+        assertEquals(10, c1.count());
+        c1.countDown();
+        assertEquals(9, c1.count());
+        c1.setToMaximum();
+        assertTrue(c1.isAtMaximum());
+    }
+    
+    public void testNewLimitedCounterMethods() {
+        assertEquals(1, c2.count());
+        c2.setToMaximum();
+        assertEquals(10, c2.count());
+        c2.countDown();
+        assertEquals(9, c2.count());
+        
+        c2.setToMaximum();
+        assertTrue(c2.isAtMaximum());
+    }
+    
+    
 }
