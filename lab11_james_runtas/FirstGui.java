@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 /**
- * Main class to create GUI
+ * GUI Class 
  * 
  * @author James Runtas 
  * Student Number 101109175
