@@ -42,7 +42,7 @@ public class RollOverCounter extends Counter
         if (super.isAtMaximum()) {
             super.reset();
         } else {
-            super.countUp();
+            super.countUp(); //use super class count method
         }
     }
     /**
@@ -54,7 +54,7 @@ public class RollOverCounter extends Counter
           if (isAtMinimum()) {
             setToMaximum();
         }else{
-            super.decrementCount();
+            super.decrementCount(); //use super class method.
         }
      }
 }

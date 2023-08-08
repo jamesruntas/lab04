@@ -43,6 +43,9 @@ public class LimitedCounter extends Counter
         }
     }
     
+    /*
+     * Decrease count by one if counter is not at minimum. 
+     */
     public void countDown() {
         if (!super.isAtMinimum()){
             super.decrementCount();

@@ -29,24 +29,17 @@ public class CounterTest extends junit.framework.TestCase
      *
      * Called before every test case method.
      */
+    @BeforeEach
     protected void setUp()
     {
         c1 = new RollOverCounter(1, 10);    
         c2 = new LimitedCounter(1, 10);    
     }
-
-    /**
-     * Tears down the test fixture.
-     *
-     * Called after every test case method.
-     */
-    protected void tearDown()
-    {
-    }
     
     /**
-     * Tests the original (lab 8) RollOverCounter methods.
+     * Tests the original (lab 9) RollOverCounter methods.
      */
+    @Test
     public void testAllRollOverCounterMethods()
     {    
         /* Verify that the counter is in the correct initial state. */
@@ -83,9 +76,10 @@ public class CounterTest extends junit.framework.TestCase
     
     
     
-        /**
-     * Tests the original (lab 8) LimitedCounter methods.
+    /**
+     * Tests the original (lab 9) LimitedCounter methods.
      */
+    @Test
     public void testAllLimitedCounterMethods()
     {    
         /* Verify that the counter is in the correct initial state. */
@@ -120,27 +114,37 @@ public class CounterTest extends junit.framework.TestCase
     }  
     
     
-    
+    /*
+     * Tests lab 10 created methods for RollOverCounter.
+     */
+    @Test
     public void testNewRollOverCounterMethods() {
-        assertEquals(1, c1.count());
-        c1.setToMaximum();
-        
-        assertEquals(10, c1.count());
+        assertEquals(1, c1.count()); //ensure count set to min first
         c1.countDown();
-        assertEquals(9, c1.count());
+        assertEquals(10, c1.count()); //Counting down from minimum should roll over to max
+        
+        c1.countDown();
+        assertEquals(9, c1.count()); //Testing Count Down
         c1.setToMaximum();
-        assertTrue(c1.isAtMaximum());
+        assertTrue(c1.isAtMaximum()); //Testing setToMaximum 
     }
     
+    /*
+     * Tests lab 10 created methods for limitedCounter.
+     */
+    @Test
     public void testNewLimitedCounterMethods() {
-        assertEquals(1, c2.count());
-        c2.setToMaximum();
-        assertEquals(10, c2.count());
+        assertEquals(1, c2.count()); // Test constructor
         c2.countDown();
-        assertEquals(9, c2.count());
+        assertEquals(1, c2.count()); //Test count down, should not go below min
+        c2.setToMaximum(); 
+        assertEquals(10, c2.count()); //Test setToMaximum
+        c2.countDown();
+        assertEquals(9, c2.count()); //Test CountDown
+
         
         c2.setToMaximum();
-        assertTrue(c2.isAtMaximum());
+        assertTrue(c2.isAtMaximum()); //Test setToMaximum
     }
     
     

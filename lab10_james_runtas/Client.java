@@ -16,22 +16,39 @@ public class Client {
         System.out.println("Running RollOverCounter");
         //create new roll over counter min 0 max 5
         RollOverCounter rollOverCounter1 = new RollOverCounter(0, 5);
-        //should display true
-        System.out.println(rollOverCounter1.isAtMinimum());
         //should display 0
-        System.out.println(rollOverCounter1.count());
+        System.out.print(rollOverCounter1.count() + ",");
 
         //Count 10 times 
         for (int i = 0; i <= 10; i++){
             rollOverCounter1.countUp(); //count up by one
+            if (rollOverCounter1.isAtMaximum()){
+                System.out.println("\nCounter is at maximum "); //print counter at max 
+            }
+            if (rollOverCounter1.isAtMinimum()){
+                System.out.println("\nCounter is at minimum");
+            }
+            System.out.print(rollOverCounter1.count() + ","); //display count after count up
+        }
+
+        System.out.println("\nSetting rollovercounter to max");
+        rollOverCounter1.setToMaximum();
+        System.out.println(rollOverCounter1.count());
+        rollOverCounter1.reset();
+
+        //Count down 10 times 
+        System.out.println("Now Counting down rollOverCounter");
+        for (int j = 0; j <= 10; j++){
+            rollOverCounter1.countDown(); //count down by one
             if (rollOverCounter1.isAtMaximum()){
                 System.out.println("Counter is at maximum: " + rollOverCounter1.count()); //print counter at max 
             }
             if (rollOverCounter1.isAtMinimum()){
                 System.out.println("Counter is at minimum: " +  rollOverCounter1.count()); //print counter at min
             }
-            System.out.println(rollOverCounter1.count()); //display count after count up
+            System.out.print(rollOverCounter1.count() + ","); //display count after count up
         }
+        
     
         rollOverCounter1.reset(); //counter reset to 0
         System.out.println("Counter is being reset");
@@ -48,7 +65,7 @@ public class Client {
 
 
         //count 10 times 
-        for (int i = 0 ; i <=10; i++){
+        for (int j = 0 ; j <=10; j++){
             limitedCounter1.countUp(); //count by one 
             if (limitedCounter1.isAtMaximum()){
                 System.out.println("Counter is at maximum: " +  limitedCounter1.count()); //if at max, print to screen
@@ -57,6 +74,23 @@ public class Client {
                 System.out.println("Counter is at minimum: " + limitedCounter1.count()); //if at min print to screen
             }
             System.out.println(limitedCounter1.count()); //display the count
+        }
+
+        System.out.println("\nSetting limitedcounter to max");
+        limitedCounter1.setToMaximum();
+        System.out.println(limitedCounter1.count());
+
+        //Count down 10 times 
+        System.out.println("Now Counting down LimitedCounter");
+        for (int j = 0; j <= 10; j++){
+            limitedCounter1.countDown(); //count down by one
+            if (limitedCounter1.isAtMaximum()){
+                System.out.println("Counter is at maximum: " + limitedCounter1.count()); //print counter at max 
+            }
+            if (limitedCounter1.isAtMinimum()){
+                System.out.println("Counter is at minimum: " +  limitedCounter1.count()); //print counter at min
+            }
+            System.out.print(limitedCounter1.count() + ","); //display count after count up
         }
        
         //reset the counter back to 0 
